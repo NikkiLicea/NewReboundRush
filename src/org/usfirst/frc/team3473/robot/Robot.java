@@ -9,6 +9,7 @@ import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
+import org.usfirst.frc.team3473.robot.commands.Drive;
 import org.usfirst.frc.team3473.robot.commands.ExampleCommand;
 import org.usfirst.frc.team3473.robot.commands.IntakeIn;
 import org.usfirst.frc.team3473.robot.commands.IntakeOut;
@@ -36,8 +37,15 @@ public class Robot extends IterativeRobot {
 	public static OI oi;
 
 	public static Drivetrain drivetrain = new Drivetrain();
+	public static Drive drive = new Drive();
 	public static Shooter shooter = new Shooter();
 	public static Intake intake = new Intake();
+	public static IntakeIn intakeIn = new IntakeIn();
+	public static IntakeOut intakeOut = new IntakeOut();
+	public static Launch launch = new Launch();
+	public static RevGreen revGreen = new RevGreen();
+	public static ShooterMoveDown shooterMoveDown = new ShooterMoveDown();
+	public static ShooterMoveUp shooterMoveUp = new ShooterMoveUp();
 	Command autonomousCommand;
 	SendableChooser<Command> chooser = new SendableChooser<>();
 
@@ -93,14 +101,14 @@ public class Robot extends IterativeRobot {
 		// schedule the autonomous command (example)
 		CommandGroup autonCommand = new CommandGroup();
 		autonCommand.addSequential(new MoveForward(3000));
-		autonCommand.addSequential(new Turn(-90.0));
-		autonCommand.addSequential(new MoveForward(2000));
-		autonCommand.addSequential(new Turn(-90.0));
-		autonCommand.addSequential(new MoveForward(3000));
-		autonCommand.addSequential(new Turn(90.0));
-		autonCommand.addSequential(new MoveForward(2000));
-		autonCommand.addSequential(new Turn(90.0));
-		autonCommand.addSequential(new MoveForward(3000));
+//		autonCommand.addSequential(new Turn(300, false));
+//		autonCommand.addSequential(new MoveForward(1500));
+//		autonCommand.addSequential(new Turn(300, false));
+//		autonCommand.addSequential(new MoveForward(1500));
+//		autonCommand.addSequential(new Turn(300, true));
+//		autonCommand.addSequential(new MoveForward(1500));
+//		autonCommand.addSequential(new Turn(300, true));
+//		autonCommand.addSequential(new MoveForward(1500));
 		autonCommand.start();
 	}
 
@@ -120,6 +128,8 @@ public class Robot extends IterativeRobot {
 		// this line or comment it out.
 		if (autonomousCommand != null)
 			autonomousCommand.cancel();
+		
+		drive.start();
 	}
 
 	/**
@@ -129,12 +139,12 @@ public class Robot extends IterativeRobot {
 	public void teleopPeriodic() {
 		Scheduler.getInstance().run();
 		
-		OI.actuatorUp.whenPressed(new ShooterMoveUp());
-		OI.actuatorDown.whenPressed(new ShooterMoveDown());
-		OI.intakeIn.whenPressed(new IntakeIn());
-		OI.intakeOut.whenPressed(new IntakeOut());
+		OI.actuatorUp.whileHeld(new ShooterMoveUp());
+		OI.actuatorDown.whileHeld(new ShooterMoveDown());
+		OI.intakeIn.whileHeld(new IntakeIn());
+		OI.intakeOut.whileHeld(new IntakeOut());
 		OI.servos.whenPressed(new Launch());
-		OI.greenSpinners.toggleWhenPressed(new RevGreen());
+		OI.greenSpinners.whileHeld(new RevGreen());
 		
 	}
 

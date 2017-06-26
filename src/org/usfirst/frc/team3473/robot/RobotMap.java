@@ -22,17 +22,17 @@ public class RobotMap {
 	// public static int rangefinderPort = 1;
 	// public static int rangefinderModule = 1;
 	
-	public static CANTalon frontLeft = new CANTalon(1);
-	public static CANTalon midLeft = new CANTalon(2);
-	public static CANTalon backLeft = new CANTalon(8);
-	public static CANTalon frontRight = new CANTalon(6);
-	public static CANTalon midRight = new CANTalon(0);
-	public static CANTalon backRight = new CANTalon(11);
-	public static CANTalon intakeIn = new CANTalon(5);
+	public static CANTalon frontLeft = new CANTalon(5);
+	public static CANTalon midLeft = new CANTalon(10);
+	public static CANTalon backLeft = new CANTalon(6);
+	public static CANTalon frontRight = new CANTalon(1);
+	public static CANTalon midRight = new CANTalon(11);
+	public static CANTalon backRight = new CANTalon(0);
+	public static CANTalon intakeIn = new CANTalon(8);
 	public static CANTalon shooterUpDown = new CANTalon(3);
 	public static CANTalon greenLeft = new CANTalon(4);
-	public static CANTalon greenRight = new CANTalon(10);
-	public static Servo ballLauncherLeft = new Servo(11);
-	public static Servo ballLauncherRight = new Servo(12);
-	public static AnalogGyro gyro = new AnalogGyro(13);
+	public static CANTalon greenRight = new CANTalon(2);
+	public static Servo ballLauncherLeft = new Servo(0);
+	public static Servo ballLauncherRight = new Servo(1);
+	public static AnalogGyro gyro = new AnalogGyro(0);
 }

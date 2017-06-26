@@ -2,6 +2,7 @@ package org.usfirst.frc.team3473.robot.commands;
 
 import org.usfirst.frc.team3473.robot.OI;
 import org.usfirst.frc.team3473.robot.Robot;
+import org.usfirst.frc.team3473.robot.subsystems.Drivetrain;
 
 import edu.wpi.first.wpilibj.command.Command;
 
@@ -29,8 +30,10 @@ public class Drive extends Command {
     	if(Math.abs(right) < 0.1)
     		right = 0;
     	
-    Robot.drivetrain.setLeft(left);
-	Robot.drivetrain.setRight(right);
+    	Robot.drivetrain.setLeft(left);
+    	Robot.drivetrain.setRight(right);
+    	
+//    	Drivetrain.Drive(OI.rightJoystick.getY(), OI.leftJoystick.getX());
     }
 
     // Make this return true when this Command no longer needs to run execute()

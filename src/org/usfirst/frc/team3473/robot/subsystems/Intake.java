@@ -13,11 +13,11 @@ public class Intake extends Subsystem {
     // here. Call these from Commands.
 	
 	public void TreadIn(){
-		RobotMap.intakeIn.set(1);
+		RobotMap.intakeIn.set(-1);
 	}
 	
 	public void TreadOut(){
-		RobotMap.intakeIn.set(-1);
+		RobotMap.intakeIn.set(1);
 	}
 	
 	public void TreadStop(){

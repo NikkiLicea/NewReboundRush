@@ -4,8 +4,6 @@ import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 
-import org.usfirst.frc.team3473.robot.commands.ExampleCommand;
-
 /**
  * This class is the glue that binds the controls on the physical operator
  * interface to the commands and command groups that allow control of the robot.
@@ -45,7 +43,9 @@ public class OI {
 	public static Button actuatorDown = new JoystickButton(rightJoystick, 5);
 	public static Button intakeIn = new JoystickButton(rightJoystick, 1);
 	public static Button intakeOut = new JoystickButton(leftJoystick, 1);
-	public static Button servos = new JoystickButton(rightJoystick, 3);
+	public static Button servos = new JoystickButton(leftJoystick, 3);
 	public static Button greenSpinners = new JoystickButton(rightJoystick, 2);
+
+
 
 }

@@ -1,7 +1,6 @@
 package org.usfirst.frc.team3473.robot.commands;
 
 import org.usfirst.frc.team3473.robot.Robot;
-import org.usfirst.frc.team3473.robot.RobotMap;
 
 import edu.wpi.first.wpilibj.command.Command;
 
@@ -19,6 +18,7 @@ public class IntakeIn extends Command {
     protected void initialize() {
     	Robot.shooter.setRevGreen(-1.0);
     	Robot.intake.TreadIn();
+    	Robot.shooter.setServoBack();
     }
 
     // Called repeatedly when this Command is scheduled to run

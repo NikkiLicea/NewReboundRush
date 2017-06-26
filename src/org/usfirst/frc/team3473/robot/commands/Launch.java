@@ -18,7 +18,7 @@ public class Launch extends Command {
     // Called just before this Command runs the first time
     protected void initialize() {
     	startingTime = System.currentTimeMillis();
-    	Robot.shooter.setServoPosition(100);
+    	Robot.shooter.setServoPosition();
     }
 
     // Called repeatedly when this Command is scheduled to run
@@ -38,11 +38,12 @@ public class Launch extends Command {
 
     // Called once after isFinished returns true
     protected void end() {
-    	Robot.shooter.setServoPosition(0);
+    	Robot.shooter.setServoBack();
     }
 
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
+    	Robot.shooter.setServoBack();
     }
 }
